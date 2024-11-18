@@ -1,5 +1,6 @@
-package br.com.wagnerpires.springsecurityjwt.security;
+package br.com.wagnerpires.springsecurityjwt.security.service.impl;
 
+import br.com.wagnerpires.springsecurityjwt.security.UserAuthenticated;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,5 +23,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         .orElseThrow(
             () -> new UsernameNotFoundException("User Not Found with username: " + username));
   }
-
 }
