@@ -1,8 +1,6 @@
 # Spring Security JWT
 
-![Tutorial](https://img.shields.io/static/v1?label=Tipo&message=Tutorial&color=8257E5&labelColor=000000)
-
-Este tutorial foi desenvolvido para ilustrar como implementar autenticação e autorização utilizando Spring Security e JWT. A aplicação demonstra como configurar e proteger endpoints com tokens JWT, utilizando Spring Boot e várias outras tecnologias do ecossistema Spring.
+Este projeto foi desenvolvido para ilustrar como implementar autenticação e autorização utilizando Spring Security e JWT. A aplicação demonstra como configurar e proteger endpoints com tokens JWT, utilizando Spring Boot e várias outras tecnologias do ecossistema Spring.
 
 ## Tecnologias Utilizadas
 
