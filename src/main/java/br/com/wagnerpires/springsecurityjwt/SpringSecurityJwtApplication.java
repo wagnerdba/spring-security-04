@@ -16,6 +16,6 @@ public class SpringSecurityJwtApplication {
 	// Encripted password for user using BCrypt encoder
 	@Bean
 	ApplicationRunner runner(PasswordEncoder passwordEncoder) {
-		return args -> System.out.println(passwordEncoder.encode("password"));
+		return args -> System.out.println("Encoded password for tests: " + passwordEncoder.encode("123456"));
 	}
 }
