@@ -136,13 +136,13 @@ Para executar a aplicação em sua máquina local, siga os passos abaixo:
 
    Autenticar:
     ```sh
-    http -a username:password POST :8080/authenticate
+    http -a username:password POST :8086/authenticate
     ```
 
    Usar o token JWT retornado para acessar um endpoint protegido:
     ```sh
     JWT=<token>
-    http :8080/private -A bearer -a ${JWT}
+    http :8086/private -A bearer -a ${JWT}
     ```
 
 ## Exemplo de Uso com curl
@@ -150,7 +150,7 @@ Para executar a aplicação em sua máquina local, siga os passos abaixo:
 1. **Autenticar utilizando o endpoint de autenticação:**
 
 ```sh
-curl -X POST -u username:password http://localhost:8080/authenticate
+curl -X POST -u username:password http://localhost:8086/authenticate
 ```
 
 **Resposta esperada:**
@@ -164,7 +164,7 @@ curl -X POST -u username:password http://localhost:8080/authenticate
 
 ```sh
 TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/private
+curl -H "Authorization: Bearer $TOKEN" http://localhost:8086/private
 ```
 
 ## Considerações de Segurança
