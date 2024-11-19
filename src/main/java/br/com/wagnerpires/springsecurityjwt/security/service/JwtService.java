@@ -22,14 +22,14 @@ public class JwtService {
     Instant now = Instant.now();
     long expiry = 60L;
 
-    // Pegar os papéis
+    // buscar papéis
     String scope = authentication
         .getAuthorities().stream()
         .map(GrantedAuthority::getAuthority)
         .collect(Collectors
             .joining(" "));
 
-    // Pegar as propriedades (claims)
+    // buscar propriedades (claims)
     JwtClaimsSet claims = JwtClaimsSet.builder()
         .issuer("spring-security-jwt")
         .issuedAt(now)
@@ -40,5 +40,4 @@ public class JwtService {
 
     return encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
   }
-
 }
