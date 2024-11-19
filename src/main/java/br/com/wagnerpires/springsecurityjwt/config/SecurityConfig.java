@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -40,7 +41,8 @@ public class SecurityConfig {
                                 .requestMatchers("/h2-console/**").permitAll() // Libera o acesso ao H2
                                 .requestMatchers("/authenticate").permitAll()
                                 .anyRequest().authenticated())
-                                .headers(headers -> headers.frameOptions().disable()) // Permite que o console H2 carregue corretamente
+                                // .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))     // Permite que o console H2 carregue corretamente
+                                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) // Permite que o console H2 carregue corretamente
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         conf -> conf.jwt(jwt -> jwt.decoder(jwtDecoder())));
