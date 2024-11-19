@@ -145,6 +145,28 @@ Para executar a aplicação em sua máquina local, siga os passos abaixo:
     http :8080/private -A bearer -a ${JWT}
     ```
 
+## Exemplo de Uso com curl
+
+1. **Autenticar utilizando o endpoint de autenticação:**
+
+```sh
+curl -X POST -u username:password http://localhost:8080/authenticate
+```
+
+**Resposta esperada:**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+2. **Acessar um endpoint protegido com o token JWT retornado:**
+
+```sh
+TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/private
+```
+
 ## Considerações de Segurança
 
 - **JWT (JSON Web Tokens)**: Utilizamos a combinação de uma chave privada e uma chave pública do tipo RSA para garantir a assinatura e a integridade dos tokens JWT. Isso assegura que os tokens não possam ser alterados sem detecção.
